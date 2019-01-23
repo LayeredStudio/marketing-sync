@@ -17,6 +17,9 @@ require plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 
 add_filter('marketing_sync_providers', function(array $providers) {
 
+	$providers['mailChimp'] = new \Layered\MarketingSync\Provider\MailChimp;
+	$providers['activeCampaign'] = new \Layered\MarketingSync\Provider\ActiveCampaign;
+
 	return $providers;
 });
 

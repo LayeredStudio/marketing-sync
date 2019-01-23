@@ -1,0 +1,163 @@
+
+/* Marketing Sync Admin */
+
+.text-right {
+	text-align: right;
+}
+
+.marketing-sync-wrap {
+	
+}
+
+.marketing-sync-wrap .w-small {
+	display: inline-block;
+	width: 10.8rem;
+}
+
+.marketing-sync-wrap .notice, .marketing-sync-wrap div.error, .marketing-sync-wrap div.updated {
+	display: block !important;
+}
+
+.marketing-sync-wrap h3 {
+	line-height: 3rem;
+	color: #333;
+	margin-top: 4rem;
+}
+
+.marketing-sync-wrap h3 span {
+	font-size: 3rem;
+	font-weight: 200;
+	margin-right: 0.5rem;
+}
+
+.marketing-sync-wrap .about-text {
+	min-height: 10px;
+}
+
+@keyframes marketing-sync-glow {
+	from {
+		box-shadow: 0 0 3px 3px rgba(255, 255, 255, .2);
+	}
+	to {
+		box-shadow: 0 0 10px 10px rgba(255, 255, 255, .3);
+	}
+}
+
+.marketing-sync-admin-providers {
+	clear: both;
+	margin: -1rem;
+}
+
+.marketing-sync-admin-provider {
+	display: block;
+	margin: 1rem;
+	border-radius: 3px;
+	background: var(--marketing-sync-color, #ccc);
+	color: var(--marketing-sync-color-text, #fff);
+	float: left;
+	cursor: default;
+}
+
+.marketing-sync-admin-provider-name {
+	position: relative;
+	display: block;
+	width: 200px;
+	border-radius: 3px 3px 0 0;
+	padding: 1rem 0;
+	text-align: center;
+	background: rgba(255, 255, 255, .1);
+}
+
+.marketing-sync-admin-provider-name svg {
+	height: 30px;
+	width: 30px;
+	fill: currentColor;
+	margin-bottom: 0.7rem;
+}
+
+.marketing-sync-admin-provider-name p {
+	font-size: 1.3rem;
+	line-height: 1;
+	margin: 0;
+}
+
+.marketing-sync-admin-provider-name a {
+	text-decoration: none;
+	color: #f0f0f0;
+	margin-right: 1rem;
+	font-size: 0.7rem;
+	position: absolute;
+	right: 0;
+	top: 5px;
+}
+
+.marketing-sync-admin-provider-actions {
+	padding: 0.5rem 1rem;
+}
+
+.marketing-sync-admin-provider-status {
+	display: inline-block;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: black;
+	box-shadow: 0 0 3px 3px rgba(255, 255, 255, .3);
+	margin-right: 3px;
+}
+
+.marketing-sync-admin-provider-status.marketing-sync-status-needs-setup {
+	background: #dc3232;
+	background: #ccc;
+}
+
+.marketing-sync-admin-provider-status.marketing-sync-status-disabled {
+	background: #ffb900;
+	animation: marketing-sync-glow 1s ease-in-out infinite alternate;
+}
+
+.marketing-sync-admin-provider-status.marketing-sync-status-connected {
+	background: #46b450;
+}
+
+.marketing-sync-admin-provider-action {
+	float: right;
+	display: inline-block;
+	background: #fff;
+	padding: 0px 5px;
+	text-decoration: none;
+	border-radius: 3px;
+}
+
+.marketing-sync-wrap .form-table th p.description {
+	font-size: 13px;
+	font-weight: normal;
+}
+
+.marketing-sync-wrap .form-table tr:not(:first-child) th,
+.marketing-sync-wrap .form-table tr:not(:first-child) td {
+	border-top: 1px solid #dfdfdf;
+}
+
+.marketing-sync-wrap legend,
+.marketing-sync-wrap .label-legend {
+	text-transform: uppercase;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+	margin-left: 0.1rem;
+	font-size: 12px;
+	color: #666;
+}
+
+.marketing-sync-provider-instructions {
+	display: none;
+}
+
+.marketing-sync-provider-instructions li {
+	line-height: 1.6;
+}
+
+.marketing-sync-provider-instructions ul {
+	list-style-type: circle;
+	margin-left: 2em;
+	margin-top: 0.3rem;
+}
