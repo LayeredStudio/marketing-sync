@@ -1,0 +1,38 @@
+{
+    "name": "layered/marketing-sync",
+    "type": "wordpress-plugin",
+    "description": "Sync users with marketing tools",
+    "keywords": [
+        "wordpress",
+        "marketing",
+        "mailchimp",
+        "intercom",
+        "drip",
+        "activecampaign",
+        "email",
+        "sync",
+        "email"
+    ],
+    "homepage": "https://wordpress.layered.studio/marketing-sync",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Andrei Igna",
+            "email": "andrei.igna@layered.studio"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/LayeredStudio/marketing-sync/issues",
+        "forum": "https://wordpress.org/support/plugin/marketing-sync",
+        "source": "https://github.com/LayeredStudio/marketing-sync"
+    },
+    "require": {
+        "php": "^5.5|^7.0",
+        "composer/installers": "~1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Layered\\MarketingSync\\": "src/"
+        }
+    }
+}
