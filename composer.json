@@ -28,7 +28,8 @@
     },
     "require": {
         "php": "^5.5|^7.0",
-        "composer/installers": "~1.5"
+        "composer/installers": "~1.5",
+        "layered/wp-helpers": "^1.9"
     },
     "autoload": {
         "psr-4": {

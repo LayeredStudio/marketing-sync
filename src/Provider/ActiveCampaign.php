@@ -5,8 +5,7 @@ use Layered\MarketingSync\ProviderInterface;
 use Layered\MarketingSync\Traits\ProviderTrait;
 use WP_User;
 
-class ActiveCampaign implements ProviderInterface {
-	use ProviderTrait;
+class ActiveCampaign extends AbstractProvider implements ProviderInterface {
 
 	public function __construct(array $connection = null) {
 		$this->id = 'activeCampaign';

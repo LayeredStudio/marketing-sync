@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "47c0f1603f5e208f9c9a1a08f09321b9",
+    "content-hash": "d598b78bbc3d33985a652861db1dd4cb",
     "packages": [
         {
             "name": "composer/installers",
@@ -125,6 +125,50 @@
                 "zikula"
             ],
             "time": "2018-08-27T06:10:37+00:00"
+        },
+        {
+            "name": "layered/wp-helpers",
+            "version": "v1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LayeredStudio/wp-helpers.git",
+                "reference": "384a5fccd1e46cc236b7354e6860e34c11da5614"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LayeredStudio/wp-helpers/zipball/384a5fccd1e46cc236b7354e6860e34c11da5614",
+                "reference": "384a5fccd1e46cc236b7354e6860e34c11da5614",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "Layered\\Wp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrei Igna",
+                    "email": "andrei.igna@layered.studio"
+                }
+            ],
+            "description": "Helpers for easier WordPress development",
+            "keywords": [
+                "wordpress",
+                "wordpress-plugin",
+                "wordpress-theme"
+            ],
+            "time": "2018-12-06T16:59:13+00:00"
         }
     ],
     "packages-dev": [],
