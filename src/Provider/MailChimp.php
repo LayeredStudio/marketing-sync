@@ -125,4 +125,8 @@ class MailChimp implements ProviderInterface {
 		return $this->syncUser($user, $connection, $fields);
 	}
 
+	public function sendEvent(WP_User $user, string $eventName, array $eventData = []): bool {
+		return false;
+	}
+
 }

@@ -61,6 +61,20 @@ class ActiveCampaign extends AbstractProvider implements ProviderInterface {
 				'type'			=>	'text',
 				'default'		=>	$settings['api_key'] ?? '',
 				'description'	=>	__('API URL & Key can be found in your account on Settings -> Developer page.', 'marketing-sync')
+			],
+			'eventKey'	=>	[
+				'name'			=>	__('Event Tracking Key:', 'marketing-sync'),
+				'required'		=>	false,
+				'type'			=>	'text',
+				'default'		=>	$settings['event_key'] ?? '',
+				'description'	=>	__('Event Tracking Key can be found in your account on Settings -> Tracking page.', 'marketing-sync')
+			],
+			'actid'	=>	[
+				'name'			=>	__('Actid:', 'marketing-sync'),
+				'required'		=>	false,
+				'type'			=>	'text',
+				'default'		=>	$settings['tracking_actid'] ?? '',
+				'description'	=>	__('Actid key can be found in your account on Settings -> Tracking page.', 'marketing-sync')
 			]
 		];
 
@@ -243,6 +257,37 @@ class ActiveCampaign extends AbstractProvider implements ProviderInterface {
 		$fields[$field] = $value;
 
 		return $this->syncUser($user, $connection, $fields);
+	}
+
+	public function sendEvent(WP_User $user, string $eventName, array $eventData = []): bool {
+		$eventKey = $this->getOption('eventKey');
+		$actid = $this->getOption('actid');
+		$re = false;
+
+		if ($eventKey && $actid) {
+			$eventData = http_build_query($eventData);
+			$eventData = str_replace(['=', '&'], [' = ', ', '], $eventData);
+
+			$req = wp_remote_request('https://trackcmp.net/event', [
+				'method'	=>	'POST',
+				'headers'	=>	[
+					'Content-Type'	=>	'application/x-www-form-urlencoded'
+				],
+				'body'		=>	http_build_query([
+					'key'		=>	$eventKey,
+					'actid'		=>	$actid,
+					'email'		=>	$user->user_email,
+					'visit'		=>	json_encode(['email' => $user->user_email]),
+					'event'		=>	$eventName,
+					'eventdata'	=>	$eventData
+				])
+			]);
+
+			$result = wp_remote_retrieve_json($req);
+			$re = (bool) $result['success'] ?? 0;
+		}
+
+		return $re;
 	}
 
 }

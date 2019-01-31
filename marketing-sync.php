@@ -27,6 +27,7 @@ add_filter('marketing_sync_providers', function(array $providers) {
 // start the plugin
 
 add_action('plugins_loaded', '\Layered\MarketingSync\Sync::start');
+add_action('plugins_loaded', '\Layered\MarketingSync\Event::instance');
 add_action('plugins_loaded', '\Layered\MarketingSync\Admin::instance');
 
 
@@ -36,6 +37,10 @@ register_activation_hook(__FILE__, '\Layered\Wp\Q::install');
 
 
 /* Helper functions */
+
+function marketingSyncSendEvent(WP_User $user, string $eventName, array $eventData = []) {
+	return Layered\MarketingSync\Event::instance()->sendEvent($user, $eventName, $eventData);
+}
 
 function marketingSyncProviders() {
 	return apply_filters('marketing_sync_providers', []);
