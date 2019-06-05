@@ -47,8 +47,21 @@ class Event {
 	}
 
 	public function jsApi() {
-		wp_enqueue_script('marketing-sync-events-api', plugins_url('assets/marketing-sync-events-api.js', dirname(__FILE__)), [], '0.1', true);
+		$currentUser = wp_get_current_user();
+		$user = null;
+
+		if ($currentUser->ID) {
+			$user = [
+				'ID'			=>	$currentUser->ID,
+				'user_login'	=>	$currentUser->user_login,
+				'user_email'	=>	$currentUser->user_email,
+				'display_name'	=>	$currentUser->display_name
+			];
+		}
+
+		wp_enqueue_script('marketing-sync-events-api', plugins_url('assets/marketing-sync-events-api.js', dirname(__FILE__)), [], '0.1');
 		wp_localize_script('marketing-sync-events-api', 'MarketingSyncEventsApi', [
+			'user'		=>	$user,
 			'nonce'		=>	wp_create_nonce('wp_rest'),
 			'apiUrl'	=>	rest_url('marketing-sync/v1/send-event')
 		]);
@@ -80,6 +93,7 @@ class Event {
 				$user = wp_get_current_user();
 				$eventName = $request->get_param('eventName');
 				$eventData = $request->get_param('eventData');
+				$eventData = array_map('urldecode', $eventData);
 
 				return $this->sendEvent($user, $eventName, $eventData);
 			}
