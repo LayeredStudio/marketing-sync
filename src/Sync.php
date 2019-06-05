@@ -127,6 +127,11 @@ class Sync {
 			'name'	=>	__('Description', 'marketing-sync'),
 			'group'	=>	__('User', 'marketing-sync')
 		];
+		$fields[] = [
+			'id'	=>	'default_password_nag',
+			'name'	=>	__('Password Nag', 'marketing-sync'),
+			'group'	=>	__('User', 'marketing-sync')
+		];
 
 
 		foreach (get_registered_meta_keys('user') as $key => $meta) {
